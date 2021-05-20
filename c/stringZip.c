@@ -34,6 +34,8 @@ int main(int argc, char *argv[])
 
 void stringZip(const char *pInputStr, long IInputLen, char *pOutputStr)
 {
+    assert(pInputStr!=NULL && pOutputStr!=NULL);
+
     long n = 0, m;
     char *buf, c;
 
