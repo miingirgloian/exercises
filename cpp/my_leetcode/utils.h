@@ -2,6 +2,7 @@
 #include <vector>
 #include <stack>
 #include <climits>
+#include <cstdlib>
 using namespace std;
 
 struct ListNode
@@ -31,4 +32,25 @@ void print_list(ListNode *head)
         head = head->next;
     }
     cout << endl;
+}
+
+void delete_list(ListNode *head)
+{
+        ListNode *p;
+        while(head!=NULL){
+                p = head->next;
+                delete head;
+                head = p;
+        }
+}
+void make_list_cycle(ListNode *head, int index)
+{
+        if(index<=0||head==NULL) exit(0);
+
+        ListNode *p = head;
+        while(head->next!=NULL) head = head->next;
+        while(--index&&p!=NULL) p = p->next;
+
+        if(p==NULL) exit(0);
+        else head->next = p; 
 }

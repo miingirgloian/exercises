@@ -5,14 +5,8 @@
  *Can you solve it without using extra space?
  */
 #include<iostream>
+#include "utils.h"
 using namespace std;
-
-struct ListNode
-{
-        int val;
-        ListNode *next;
-        ListNode(int x) : val(x), next(NULL) {}
-};
 
 class Solution {
         public:
@@ -44,22 +38,11 @@ class Solution {
                 }
 };
 
-
-#define N 2
 int main(int argc, char *argv[])
 {
         int a[] = {1,2,3,4,5,6,7};
-        ListNode *head = new ListNode(a[0]);
-        ListNode *p = head;
-        ListNode *q = NULL;
-
-        for (int i = 1; i < N; ++i)
-        {
-                p->next = new ListNode(a[i]);
-                if(i==1) q = p;
-                p = p->next;
-        }
-        p->next = p;
+        ListNode *head = make_list(a,7);
+        make_list_cycle(head,2);
 
         Solution ss;
         cout << ss.detectCycle(head)->val << endl;

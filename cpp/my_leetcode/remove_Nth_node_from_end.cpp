@@ -1,21 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <stack>
+#include "utils.h"
 using namespace std;
 
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-};
-void print(ListNode* head)
-{
-    while(head!=NULL){
-        cout << head->val<< " ";
-        head = head->next;
-    }
-    cout << endl;
-}
 class Solution {
 public:
     ListNode *removeNthFromEnd(ListNode *head, int n, int k) {
@@ -57,15 +45,11 @@ public:
 };
 int main()
 {
-    ListNode* head = new ListNode(1);
-    ListNode* p = head;
-    for(int i = 2;i<3;i++){
-        p->next = new ListNode(i);
-        p = p->next;
-        p->next = NULL;
-    }
-    print(head);
+    int a[] = {1,2,3,4,5,6};
+    ListNode* head = make_list(a,3);
+
+    print_list(head);
     Solution ss;
-    print(ss.removeNthFromEnd(head,1));
+    print_list(ss.removeNthFromEnd(head,1));
     return 0;
 }
